@@ -182,7 +182,7 @@ Function GetRunNumFromFile(item)
 		else
 			String expr = "([[:alpha:]]+)([[:digit:]]+)\.([[:digit:]]+)\.txt"
 			String str, upper, lower;
-			SplitString/E=(expr) str, upper, lower;
+			SplitString/E=(expr) item, str, upper, lower;
 
 			if (stringmatch(str, ""))
 				return (invalid)
@@ -230,7 +230,7 @@ Function/S GetRunNumStrFromFile(item)	//,numposition)
 		else
 			String expr = "([[:alpha:]]+)([[:digit:]]+)\.([[:digit:]]+)\.txt"
 			String str, upper, lower;
-			SplitString/E=(expr) str, upper, lower;
+			SplitString/E=(expr) item, str, upper, lower;
 
 			if (stringmatch(str, ""))
 				return invalid
