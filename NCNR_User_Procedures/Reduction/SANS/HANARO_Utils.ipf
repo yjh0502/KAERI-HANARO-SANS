@@ -235,7 +235,7 @@ Function/S GetRunNumStrFromFile(item)	//,numposition)
 			if (stringmatch(str, ""))
 				return invalid
 			else
-				return upper+lower
+				return upper[2] + upper[3] + upper[4]
 			Endif
 		Endif
 	Endif
@@ -255,20 +255,11 @@ Function/S FindFileFromRunNumber(num)
 	Variable num
 
 	String fullName="",partialName="",item=""
-	String numStr = "",upper = "", lower = ""
-	upper = num2str(num/10000000)
+	String numStr = ""
+	numStr = num2str(num)
 	do
-		upper = "0" + upper
-	while(strlen(upper) < 5)
-
-	lower = num2str(num - (num/10000000)*10000000)
-	do
-		lower = "0" + lower
-	while(strlen(lower) < 7)
-
-	numStr = upper + lower
-
-	
+		numStr = "0" + numStr
+	while(strlen(numStr) < 3)
 
 	//make sure that path exists
 	PathInfo catPathName
@@ -842,7 +833,7 @@ Function/S GetRawDataFileList()
 	Variable num=ItemsInList(list,";"),ii
 	for(ii=0;ii<num;ii+=1)
 		item = StringFromList(ii, list  ,";")
-		if( stringmatch(item,"*.raw") )
+		if( stringmatch(item,"*.txt") )
 			newlist += item + ";"
 		endif
 	endfor

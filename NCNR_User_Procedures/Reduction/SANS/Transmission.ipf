@@ -341,19 +341,19 @@ Function GetFilenamesFromSuffices()
 	//print num_t_files, num_s_files
 	
 	// Get transmission file relations
-	ii= 0
-	do
-		if (cmpstr(T_GSuffices[ii],"")!=0)
-			jj=0
-			do
-				if (cmpstr(T_GSuffices[ii],T_GSuffix[jj])==0)
-					T_EMP_Filenames[ii]=T_GFilenames[jj]
-				endif
-			jj+=1
-			while(jj<num_t_files)
-		endif
-		ii+=1
-	while(ii<num_t_files)
+//	ii= 0
+//	do
+//		if (cmpstr(T_GSuffices[ii],"")!=0)
+//			jj=0
+//			do
+//				if (cmpstr(T_GSuffices[ii],T_GSuffix[jj])==0)
+//					T_EMP_Filenames[ii]=T_GFilenames[jj]
+//				endif
+//			jj+=1
+//			while(jj<num_t_files)
+//		endif
+//		ii+=1
+//	while(ii<num_t_files)
   
 	// Get scattering file relations
 	ii= 0
