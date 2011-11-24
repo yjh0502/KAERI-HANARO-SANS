@@ -141,8 +141,7 @@ Function ReadHeaderAndWork(type,fname)
 	String type,fname
 	
 	String cur_folder = type
-	String curPath = "root:"+cur_folder
-	SetDataFolder curPath		//use the full path, so it will always work
+	String curPath = "root:Packages:NIST:"+cur_folder
 	
 	NVAR size = root:myGlobals:gNPixelsX
 	
@@ -153,9 +152,6 @@ Function ReadHeaderAndWork(type,fname)
 	Open/R file as fname
 	getDataFromFile(file, data)
 	Redimension/N=(size,size) data
-	
-	//return the data folder to root
-	SetDataFolder root:
 
 	Close/A
 	
@@ -830,6 +826,11 @@ function writeHeaderContents(filename, requestedContent, content)
 	return(0)
 end
 
+Function ReadWork_DIV()
+	String fname = PromptForPath("Select detector sensitivity file")
+	
+	ReadHeaderAndWork("DIV",fname)
+End
 
 ////// OCT 2009, facility specific bits from ProDiv()
 //"type" is the data folder that has the corrected, patched, and normalized DIV data array
@@ -840,6 +841,23 @@ Function Write_DIV_File(type)
 	String type
 	
 	// Your file writing function here. Don't try to duplicate the VAX binary format...
+	Variable i, j, file;
+	NVAR dim = root:myGlobals:gNPixelsX;
+	WAVE data=$("root:Packages:NIST:"+type+":data");
+	String fname=""
+	fname = DoSaveFileDialog("Save data as")
+
+	Open file as fname
+	
+	fprintf file, " \r\n"
+	for(i=0;i<dim;i+=1)
+		for(j=0;j<dim;j+=1)
+			fprintf file, "%f ", data[i][j]
+		endfor
+		fprintf file, "\r\n"
+	endfor
+	
+	Close file
 	
 	return(0)
 End

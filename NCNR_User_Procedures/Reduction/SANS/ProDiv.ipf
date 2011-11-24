@@ -553,6 +553,8 @@ Function CheckDIVBeamCenter(str,xc,yc)
 	String str
 	Variable xc,yc
 	
+	return(0)
+	
 	Variable err,ii,num,tmpX,tmpY,badCtr,tol=5
 	String fileStr,pathStr
 	
