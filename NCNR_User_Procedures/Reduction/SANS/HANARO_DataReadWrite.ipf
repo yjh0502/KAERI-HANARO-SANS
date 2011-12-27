@@ -81,7 +81,7 @@ Function ReadHeaderAndData(fname)
 	
 	
 	textw[0] = readHeaderContents(fname, "FileName");
-	textw[3] = readHeaderContents(fname, "Instrument");
+	textw[3] = readHeaderContents(fname, "FileName");
 	textw[10] = readHeaderContents(fname, "User_Institute");
 	textw[1] = readHeaderContents(fname, "Start_Time");
 	textw[6] = readHeaderContents(fname, "Sample");
@@ -111,6 +111,9 @@ Function ReadHeaderAndData(fname)
 	realw[13] = 5
 	realw[14]  = 10000
 	
+	//keep a string with the filename in the RAW folder
+	String/G root:Packages:NIST:RAW:fileList = textw[0]
+	
 	SetDataFolder curPath		//use the full path, so it will always work
 	
 	NVAR size = root:myGlobals:gNPixelsX
@@ -121,9 +124,6 @@ Function ReadHeaderAndData(fname)
 	Open/R file as fname
 	getDataFromFile(file, data)
 	Redimension/N=(size,size) data
-	
-	//keep a string with the filename in the RAW folder
-	String/G root:RAW:fileList = textw[0]
 		
 	//clean up - get rid of w = $"root:RAW:tempGBWave0"
 	KillWaves/Z w

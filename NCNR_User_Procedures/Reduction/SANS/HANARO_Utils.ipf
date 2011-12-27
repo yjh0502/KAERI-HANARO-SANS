@@ -187,7 +187,7 @@ Function GetRunNumFromFile(item)
 			if (stringmatch(str, ""))
 				return (invalid)
 			else
-				return str2num(upper+lower)
+				return str2num(upper)
 			Endif
 		Endif
 	Endif
@@ -235,7 +235,7 @@ Function/S GetRunNumStrFromFile(item)	//,numposition)
 			if (stringmatch(str, ""))
 				return invalid
 			else
-				return upper[2] + upper[3] + upper[4]
+				return upper
 			Endif
 		Endif
 	Endif
@@ -257,9 +257,6 @@ Function/S FindFileFromRunNumber(num)
 	String fullName="",partialName="",item=""
 	String numStr = ""
 	numStr = num2str(num)
-	do
-		numStr = "0" + numStr
-	while(strlen(numStr) < 3)
 
 	//make sure that path exists
 	PathInfo catPathName
