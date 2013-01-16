@@ -127,6 +127,8 @@ Function ReadHeaderAndData(fname)
 		
 	//clean up - get rid of w = $"root:RAW:tempGBWave0"
 	KillWaves/Z w
+
+	Duplicate/O data,$"root:Packages:NIST:RAW:linear_data"
 	
 	//return the data folder to root
 	SetDataFolder root:
