@@ -718,7 +718,7 @@ function getDataFromFile(file, out)
 		endif
 	while(cmpstr(buf, " \r") != 0)
 	
-	String expr = "([0-9.]+) (.*)"
+	String expr = "([0-9.]+)[ 	](.*)"
 	for(i = 0; i < dim; i=i+1)
 		FReadLine file, buf
 		for(j = 0; j < dim; j=j+1)
