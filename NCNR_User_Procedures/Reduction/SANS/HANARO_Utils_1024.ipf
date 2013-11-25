@@ -23,7 +23,7 @@ Function InitFacilityGlobals()
 	Variable/G root:myGlobals:gNPixelsY=1024
 	
 	// pixel dimensions are now read directly from the file header.
-	Variable/G root:myGlobals:PixelResDefault = 0.51	//pixel resolution in cm
+	Variable/G root:myGlobals:PixelResDefault = 0.012	//pixel resolution in cm
 	//No dead time measured for HFIR detector but the count rate is set very low. For now, set the detector perfect.
 	// This should be updated when the condition is changed.   JHC 09/02/09
 	Variable/G root:myGlobals:DeadtimeDefault =  0       //3.4e-6 (NIST value)	//deadtime in seconds
