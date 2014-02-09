@@ -257,6 +257,9 @@ Function/S FindFileFromRunNumber(num)
 	String fullName="",partialName="",item=""
 	String numStr = ""
 	numStr = num2str(num)
+	do
+		numStr = "0" + numStr
+	while(strlen(numStr) < 5)
 
 	//make sure that path exists
 	PathInfo catPathName

@@ -854,7 +854,7 @@ Function Write_DIV_File(type)
 	fprintf file, " \r\n"
 	for(i=0;i<dim;i+=1)
 		for(j=0;j<dim;j+=1)
-			fprintf file, "%f ", data[i][j]
+			fprintf file, "%f ", data[j][i]
 		endfor
 		fprintf file, "\r\n"
 	endfor

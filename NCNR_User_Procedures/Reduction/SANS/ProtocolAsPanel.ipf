@@ -1887,6 +1887,8 @@ Function ExecuteProtocol(protStr,samStr)
 //			newFileName = ReplaceString("exp",newFileName,"")			//removes 3 more chars = 11
 //			newFileName = ReplaceString("scan",newFileName,"")		//removes 4 more chars = 15, should be enough?
 			newFileName = GetPrefixStrFromFile(textPath[0])+GetRunNumStrFromFile(textPath[0])
+#elif (exists("HANARO")==6)
+			newFileName = ReplaceString(".txt",textPath[0],"")		//removes 4 chars	
 #else
 			newFileName = UpperStr(GetNameFromHeader(textPath[0]))		//NCNR data drops here, trims to 8 chars
 #endif

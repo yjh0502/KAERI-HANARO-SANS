@@ -1341,6 +1341,12 @@ Proc Pref_Panel()
 	CheckBox PrefCtrl_1f pos={255,100},help={"TURN OFF ONLY FOR DEBUGGING. This corrects the data for angle dependent transmssion."}
 	CheckBox PrefCtrl_1g title="Do Efficiency Correction?",size={140,14}
 	CheckBox PrefCtrl_1g value=1,pos={255,120},help={"TURN OFF ONLY FOR DEBUGGING. This corrects the data for angle dependent detector efficiency."}
+	
+	
+	SetVariable PrefCtrl_1h,pos={21,215},size={200,15},title="Detector pixels (x)"
+	SetVariable PrefCtrl_1h,limits={196,1024,828},value= root:myGlobals:gNPixelsX
+	SetVariable PrefCtrl_1i,pos={21,235},size={200,15},title="Detector pixels (y)"
+	SetVariable PrefCtrl_1i,limits={196,1024,828},value= root:myGlobals:gNPixelsY
 
 
 	CheckBox PrefCtrl_1a,disable=1
@@ -1350,6 +1356,8 @@ Proc Pref_Panel()
 	SetVariable PrefCtrl_1e,disable=1
 	CheckBox PrefCtrl_1f,disable=1
 	CheckBox PrefCtrl_1g,disable=1
+	SetVariable PrefCtrl_1h,disable=1
+	SetVariable PrefCtrl_1i,disable=1
 
 //on tab(2) - USANS
 	GroupBox PrefCtrl_2a pos={21,100},size={1,1},title="nothing to set",fSize=12
