@@ -180,7 +180,7 @@ Function GetRunNumFromFile(item)
 			//not enough characters
 			return (invalid)
 		else
-			String expr = "([[:alpha:]]+)([[:digit:]]+)\.([[:digit:]]+)\.txt"
+			String expr = "([[:alpha:]]+)[[:digit:]][[:digit:]]([[:digit:]]+)\.([[:digit:]]+)\.txt"
 			String str, upper, lower;
 			SplitString/E=(expr) item, str, upper, lower;
 
@@ -259,7 +259,7 @@ Function/S FindFileFromRunNumber(num)
 	numStr = num2str(num)
 	do
 		numStr = "0" + numStr
-	while(strlen(numStr) < 5)
+	while(strlen(numStr) < 3)
 
 	//make sure that path exists
 	PathInfo catPathName
